@@ -1,15 +1,18 @@
 name: Aula de GCS (PUCCAMPINAS)
 on: push
-    
 jobs: 
   primeiro:
     runs-on: ubuntu-latest
     name: Primeiro Job Escrito
-    steps: 
-     - name: Mostrar Rodando
-       run: echo teste
-     - name: Mostra Rodando
-       run: echo "${{ github.event_name }} foi disparado"
+    steps:
+     - run: echo "${{ github.event_name}} foi disparado"
+     - run: echo "No ${{runner.os}}"
+     - run: echo "Repositorio ${{ github_repository}} na branch ${{gitbun.ref}}"
+     
+     - name: Checkout o Repositorio
+       uses: actions/checkout@v3
+       
+     -  
        
   segundo:
     runs-on: windows-lastest
@@ -21,9 +24,3 @@ jobs:
           VAR2: GitHub Actions
         run: echo $VAR1 $VAR2
 
-  terceiro:
-    runs-on: ubuntu-lastest
-    name: Terceiro
-    steps:
-      - name: Terceiro
-        run: echo "${{ github.event_name }} foi disparado
