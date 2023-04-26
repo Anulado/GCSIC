@@ -1,26 +1,29 @@
 name: Aula de GCS (PUCCAMPINAS)
 on: push
-
-defaults:
-  run:
-    shell: bash
-    # working-directory:
     
-
 jobs: 
   primeiro:
     runs-on: ubuntu-latest
     name: Primeiro Job Escrito
     steps: 
-     - name: Mostrar rodando
-     - run: echo teste
-    
+     - name: Mostrar Rodando
+       run: echo teste
+     - name: Mostra Rodando
+       run: echo "${{ github.event_name }} foi disparado"
+       
   segundo:
     runs-on: windows-lastest
-    name: Segundo
+    name: First
     steps: 
       - name: Criando Variaveis de ambiente
         env:
           VAR1: Isto é
           VAR2: GitHub Actions
         run: echo $VAR1 $VAR2
+
+  terceiro:
+    runs-on: ubuntu-lastest
+    name: Terceiro
+    steps:
+      - name: Terceiro
+        run: echo "${{ github.event_name }} foi disparado
